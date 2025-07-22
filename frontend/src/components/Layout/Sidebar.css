@@ -1,0 +1,51 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: width 0.3s ease;
+    width: 60px; /* Collapsed width */
+    overflow: hidden;
+}
+
+.sidebar.open {
+    width: 240px; /* Expanded width */
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    height: 64px;
+}
+
+.sidebar-header h3 {
+    white-space: nowrap;
+    margin: 0;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sidebar-top-menu,
+.sidebar-bottom-menu {
+    padding: 0;
+}
+
+/* Style for active NavLink */
+.sidebar a.active {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+.sidebar a.active .MuiListItemIcon-root {
+    color: #0d47a1;
+}

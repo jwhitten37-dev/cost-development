@@ -1,0 +1,28 @@
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    padding: 24px;
+    outline: none;
+}
+
+/* --- Dark Theme Modal Styles --- */
+.dark-theme .modal-content {
+    background-color: #333;
+    color: #fff;
+}
+
+/* You'll also need to style the MUI components inside the modal for dark mode */
+.dark-theme .modal-content .MuiInputBase-root,
+.dark-theme .modal-content .MuiInputLabel-root {
+    color: #fff !important;
+}
+
+.dark-theme .modal-content .MuiOutlinedInput-notchedOutline {
+    border-color: #888 !important;
+}

@@ -1,0 +1,71 @@
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: white;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+  /* flex-grow: 1; Remove if title should not grow excessively */
+  /* text-align: center; Let flexbox handle alignment */
+}
+
+/* Style for the clickable header title */
+.clickable-header-title {
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Optional: Add a hover effect for better visual feedback */
+.clickable-header-title:hover {
+  color: #d0e0ff; /* A lighter blue to indicate interactivity */
+}
+
+.header-auth-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-auth-section .user-greeting {
+  margin-right: 10px;
+  font-size: 0.9em;
+}
+
+.header-auth-section .auth-button {
+  padding: 6px 12px;
+  font-size: 0.9em;
+}
+
+.user-greeting {
+  font-weight: 500;
+  color: #eee;
+}
+
+.auth-button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.login-button {
+  color: #fff;
+  background-color: #28a745;
+  border: 1px solid #28a745;
+}
+.login-button:hover { background-color: #218838; border-color: #1e7e34;}
+
+.logout-button {
+  color: #fff;
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+.logout-button:hover { background-color: #c82333; border-color: #bd2130;}
