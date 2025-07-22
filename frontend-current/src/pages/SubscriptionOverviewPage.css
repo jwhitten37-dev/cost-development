@@ -1,0 +1,43 @@
+/* src/pages/SubscriptionOverviewPage.css */
+.subscription-overview-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.aggregate-data-section {
+    padding: 16px;
+    margin-bottom: 24px;
+    background-color: #eef4f8;
+}
+
+.aggregate-data-section .MuiPaper-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+.aggregate-data-section .MuiTypography-h6 {
+    font-weight: bold;
+}
+
+.subscription-blocks-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.info-message {
+  padding: 0.75rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  font-size: 0.95em;
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  text-align: center;
+}

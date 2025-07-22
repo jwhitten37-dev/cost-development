@@ -1,0 +1,172 @@
+/* src/components/ProviderBreakdownView.css */
+.provider-breakdown-section {
+  margin-top: 25px;
+  padding: 20px;
+  border: 1px solid #adb5bd; /* Slightly darker neutral border */
+  border-radius: 0.25rem;
+  background-color: #f8f9fa;
+}
+
+.provider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.provider-breakdown-section h4 {
+  font-size: 1.25em; /* Slightly larger for section title */
+  color: #212529; /* Darker text */
+  margin: 0;
+}
+
+.clear-provider-view-button {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.9rem; /* Increased size slightly */
+  font-weight: 500;
+  background-color: #6c757d; /* Grey for hide */
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between X and Hide */
+  transition: background-color 0.15s ease-in-out;
+}
+.clear-provider-view-button:hover {
+  background-color: #5a6268;
+}
+
+.provider-content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 992px) {
+  .provider-content-layout {
+    flex-direction: row;
+  }
+}
+
+.provider-table-area {
+  flex: 3;
+  min-width: 300px;
+  overflow-x: auto;
+}
+
+.provider-chart-area {
+  flex: 2;
+  min-width: 280px;
+  max-width: 480px; /* Adjusted max-width */
+  height: 320px; /* Adjusted height */
+  margin: 0; /* Align left in its flex container */
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.provider-table-area table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.provider-table-area th,
+.provider-table-area td {
+  border: 1px solid #dee2e6;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.provider-table-area th {
+  background-color: #e9ecef;
+  font-weight: 500;
+  color: #495057;
+}
+
+.expand-column-header {
+    width: 40px; /* Width for the expand icon column */
+    text-align: center;
+}
+
+.provider-row {
+  background-color: #fff;
+  transition: background-color 0.1s ease-in-out;
+}
+.provider-row.expandable { /* Only add cursor if it's expandable */
+    cursor: pointer;
+}
+.provider-row.expandable:hover {
+  background-color: #f0f8ff; /* AliceBlue for hover */
+}
+
+
+.expand-cell {
+  width: 40px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #007bff;
+  user-select: none; /* Prevent text selection of arrow */
+}
+
+.resource-sub-row {
+  background-color: #fdfdfd; /* Very light grey for sub-rows */
+  font-size: 0.95em; /* Maintain readability */
+  color: #333; /* Darker text for sub-items */
+}
+
+.resource-sub-row td {
+  border-bottom: 1px dashed #e9ecef; /* Lighter, dashed border for sub-rows */
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+.resource-sub-row:last-child td { /* Last sub-row in a group */
+    border-bottom: 1px solid #dee2e6; /* Solid border if it's the last sub-item */
+}
+.provider-row + .resource-sub-row td { /* First sub-row directly under a provider */
+    border-top: 1px dashed #e9ecef; /* Ensure a separator from the main row */
+}
+
+
+.resource-name-cell {
+  padding-left: 15px !important; /* Ensure padding is applied here */
+}
+
+.indent-prefix {
+  display: inline-block;
+  margin-right: 8px; /* Space after the indent prefix */
+  color: #6c757d;
+  font-family: monospace; /* For better alignment of tree characters if used */
+}
+
+.entry-date-suffix {
+  font-size: 0.85em;
+  color: #6c757d;
+  margin-left: 8px;
+  font-style: italic;
+}
+
+.resource-cost-cell {
+  text-align: right;
+  padding-right: 15px !important;
+  font-family: monospace; /* Good for numbers */
+  font-size: 0.95em;
+}
+
+/* Ensure the table cells align well */
+.provider-table-area td:nth-child(3), /* Total Cost column */
+.provider-table-area td:nth-child(4) { /* Resource Entries column */
+  text-align: right;
+  padding-right: 15px !important;
+}
+.provider-table-area th:nth-child(3),
+.provider-table-area th:nth-child(4) {
+  text-align: right;
+  padding-right: 15px !important;
+}

@@ -1,0 +1,48 @@
+.subscription-selector-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.subscription-selector-container label {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.subscription-selector-container select {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.95rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.2rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.subscription-selector-container select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2em rgba(0,123,255,.25);
+}
+
+.subscription-selector-container select:disabled {
+    border-color: #e9ecef;
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.loading-inline {
+    font-style: italic;
+    font-size: 0.85em;
+    color: #555;
+    margin-top: 3px;
+}
+
+.no-subs-message {
+    font-style: italic;
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 3px;
+}

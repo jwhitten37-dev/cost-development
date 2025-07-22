@@ -1,0 +1,396 @@
+/* src/App.css */
+
+/* Global Resets & Base Styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #343a40;
+  background-color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --- Main App Layout --- */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sidebar-content h2 {
+  font-size: 1.4em;
+  color: #004085;
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 10px;
+}
+
+.main-content-area {
+  flex-grow: 1;
+  /* Adjust margin-left based on whether sidebar is shown for the current view */
+  /* margin-left: 300px; */ /* Desktop: Offset by sidebar width - This will be conditional in App.js or via classes */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: white;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+  /* flex-grow: 1; Remove if title should not grow excessively */
+  /* text-align: center; Let flexbox handle alignment */
+}
+
+/* Style for the clickable header title */
+.clickable-header-title {
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Optional: Add a hover effect for better visual feedback */
+.clickable-header-title:hover {
+  color: #d0e0ff; /* A lighter blue to indicate interactivity */
+}
+
+.header-auth-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-auth-section .user-greeting {
+  margin-right: 10px;
+  font-size: 0.9em;
+}
+
+.header-auth-section .auth-button {
+  padding: 6px 12px;
+  font-size: 0.9em;
+}
+
+
+.app-main-content {
+  padding: 20px 25px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+
+/* --- Hamburger Button & Mobile Sidebar --- */
+.hamburger-button {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  background-color: #004085;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1.8em;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Responsive behavior for Sidebar */
+@media (max-width: 991.98px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  }
+  .app-container.sidebar-open-mobile .sidebar {
+    transform: translateX(0);
+  }
+  .main-content-area {
+    margin-left: 0;
+  }
+  .hamburger-button {
+    display: block;
+  }
+  .app-container.sidebar-open-mobile::after { /* Overlay */
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+}
+
+/* Adjust main content margin when sidebar is visible on desktop */
+.app-container .sidebar:not(.collapsed) + .main-content-area {
+  margin-left: 300px;
+}
+/* Reset margin for mobile when sidebar is closed (default state) */
+@media (max-width: 991.98px) {
+  .app-container .main-content-area {
+    margin-left: 0;
+  }
+  /* Ensure margin is applied if mobile sidebar is open */
+}
+
+
+/* --- Controls within Sidebar (if any remain, e.g., for detail view) --- */
+.subscription-input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* --- Timeframe Selector in Sidebar (if used) --- */
+.timeframe-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.timeframe-selector div { /* Groupings within timeframe selector */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.timeframe-selector label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95em;
+}
+.timeframe-selector input[type="date"],
+.timeframe-selector select {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9em;
+  border: 1px solid #ced4da;
+  border-radius: 0.2em;
+  width: 100%;
+  box-sizing: border-box;
+}
+.timeframe-selector button {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.95rem;
+  align-self: flex-start;
+  font-weight: 500;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: color .15s ease-in-out,backgroud-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.timeframe-selector button:hover {
+  background-color: #0056b3;
+  border-color: #005cbf;
+}
+.timeframe-selector button:disabled {
+  background-color: #e9ecef;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.custom-dates {
+  display: flex;
+  flex-direction: row !important;
+  gap: 8px !important;
+  align-items: center;
+}
+.custom-dates input[type="date"] {
+    flex-grow: 1;
+}
+
+/* --- Report Buttons in Sidebar --- */
+.report-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.report-buttons button {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: 500;
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: color .15s ease-in-out,backgroud-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.report-buttons button:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+.report-buttons button:disabled {
+  background-color: #e9ecef;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* --- Authentication Section (General Button Styling) --- */
+/* This .auth-section might be removed or simplified if only used in header now */
+/* .auth-section {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.auth-section p {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+} */
+
+.user-greeting {
+  font-weight: 500;
+  color: #eee;
+}
+
+.auth-button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.login-button {
+  color: #fff;
+  background-color: #28a745;
+  border: 1px solid #28a745;
+}
+.login-button:hover { background-color: #218838; border-color: #1e7e34;}
+
+.logout-button {
+  color: #fff;
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+.logout-button:hover { background-color: #c82333; border-color: #bd2130;}
+
+/* --- General Message Styles --- */
+.error-message, .loading-message, .info-message {
+  padding: 0.75rem 1.25rem;
+  margin: 0 0 1rem 0;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  font-size: 0.95em;
+}
+.error-message { color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; }
+.loading-message { color: #004085; background-color: #cce5ff; border-color: #b8daff; }
+.info-message { color: #0c5460; background-color: #d1ecf1; border-color: #bee5eb; }
+
+/* --- General Chart Area Styling --- */
+.chart-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.no-chart-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #6c757d;
+    font-style: italic;
+    background-color: #f8f9fa;
+    border: 1px dashed #dee2e6;
+    border-radius: 0.25em;
+}
+
+/* Utility class for consistent vertical spacing between sections in sidebar */
+.section-spacing {
+  margin-top: 20px;
+}
+
+.loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Ensure header within loading/error container is also centered if it's part of it */
+.loading-container .App-header,
+.error-container .App-header {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.loading-container .App-header h1,
+.error-container .App-header h1 {
+    text-align: center;
+    flex-grow: 0;
+}
+
+
+.nav-button {
+    background-color: #6c757d;
+    color: white;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+.nav-button:hover {
+    background-color: #5a6268;
+}
+
+/*
+ * App Footer Styles
+ */
+.App-footer {
+  background-color: #333; /* A common dark color, assuming it matches the header */
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  flex-shrink: 0; /* Prevents footer from shrinking in a flex container */
+}
+
+.App-footer p {
+  margin: 0;
+}

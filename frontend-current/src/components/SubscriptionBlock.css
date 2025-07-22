@@ -1,0 +1,106 @@
+/* src/components/SubscriptionBlock.css */
+.subscription-block {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 380px; /* Adjust as needed, consider flex-basis for responsiveness */
+    min-height: 300px; /* Ensure blocks have some minimum height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.subscription-block:hover,
+.subscription-block:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.subscription-block-title {
+    font-size: 1.1em;
+    color: #0078d4; /* Azure blue */
+    margin-top: 0;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.subscription-block-id {
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.subscription-block-daterange {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px; /* Space before the total cost */
+    font-style: italic;
+}
+
+.subscription-block-projection {
+    font-size: 0.85em;
+    color: #28a745; /* Green for projection */
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.subscription-block-total {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.subscription-block-chart {
+    flex-grow: 1; /* Allow chart to take available space */
+    min-height: 200px; /* Give chart some space */
+    position: relative; /* For chart.js responsiveness */
+}
+
+.subscription-block .loading-message,
+.subscription-block .error-message {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+
+.subscription-block .error-message {
+    color: red;
+}
+
+.top-spenders-section {
+        margin-top: 15px;
+        font-size: 0.85em;
+    }
+
+    .top-spenders-title {
+        font-size: 1em; /* Relative to parent's 0.85em */
+        color: #555;
+        margin-bottom: 5px;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+    }
+
+    .top-spenders-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .top-spender-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 3px 0;
+        border-bottom: 1px dotted #f0f0f0;
+    }
+    .top-spender-item:last-child {
+        border-bottom: none;
+    }
+
+    .spender-name { color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%; }
+    .spender-cost { color: #0078d4; font-weight: 500; white-space: nowrap; }

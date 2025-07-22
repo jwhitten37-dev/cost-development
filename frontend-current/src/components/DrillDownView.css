@@ -1,0 +1,141 @@
+/* src/components/DrillDownView.css */
+.drill-down-section {
+  padding: 20px;
+  margin-top: 0; /* If App.js app-main-content already has padding */
+  border: 1px solid #b8daff; /* Lighter blue border */
+  border-radius: 0.25rem;
+  background-color: #f0f8ff; /* Alice blue - very light */
+}
+
+.drill-down-section h3 {
+    font-size: 1.3em;
+    color: #004085; /* Consistent with App.js header if desired */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.drill-down-section h4 {
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.breadcrumbs {
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  color: #495057;
+  padding: 8px 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.breadcrumb-item {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: none;
+}
+.breadcrumb-item:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+.breadcrumbs span + .breadcrumb-item::before { /* Add separator */
+    content: " > ";
+    margin: 0 5px;
+    color: #6c757d;
+    cursor: default;
+    text-decoration: none;
+}
+
+
+.exit-drilldown-button {
+  margin-bottom: 20px; /* Space below button before content */
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+.exit-drilldown-button:hover {
+  background-color: #5a6268;
+}
+
+.drilldown-content-layout {
+  display: flex;
+  flex-direction: column; /* Stack list and chart vertically by default */
+  gap: 25px; /* Increased gap */
+  margin-top: 15px;
+}
+
+@media (min-width: 992px) { /* Side-by-side on larger screens for this component's internal layout */
+  .drilldown-content-layout {
+    flex-direction: row;
+  }
+}
+
+.drilldown-list-area {
+  flex: 1; /* Adjust flex basis if needed, e.g., flex: 2; */
+  min-width: 280px;
+}
+
+.drilldown-chart-area {
+  flex: 1; /* Adjust flex basis if needed, e.g., flex: 1; */
+  min-width: 280px;
+  max-width: 500px; /* Max width for doughnut chart */
+  height: 350px;
+  margin: 0 auto; /* Center chart area */
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.drill-down-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.drill-down-list li {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid #dee2e6;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  font-size: 0.9em;
+  background-color: #fff;
+}
+.drill-down-list li:hover {
+  background-color: #e9f5ff;
+}
+.drill-down-list li:last-child {
+  border-bottom: none;
+}
+
+.leaf-node-details { /* Table for final leaf node entries */
+    margin-top: 20px;
+}
+.leaf-node-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #fff;
+  font-size: 0.85em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.leaf-node-details th,
+.leaf-node-details td {
+  border: 1px solid #e9ecef;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.leaf-node-details th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}

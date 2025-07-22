@@ -1,0 +1,131 @@
+/* src/components/CostDisplay.css */
+.cost-display-section {
+    margin-bottom: 20px; /* Add some space below this section if multiple are stacked */
+    padding: 20px;
+    border: 1px solid #c3e6cb;
+    border-radius: 0.25rem;
+    background-color: #f0fff0; /* Slightly off-white green for less intensity */
+}
+
+.cost-view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d4edda;
+}
+
+.view-title {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #155724;
+    margin-right: 15px;
+    word-break: break-word;
+}
+
+.view-total-cost {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #155724;
+    white-space: nowrap;
+    margin-left: auto;
+    padding-left: 15px;
+}
+
+.view-meta-info {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.cost-display-section h4 {
+    font-size: 1.1em;
+    color: #155724;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.cost-display-layout {
+    display: flex;
+    flex-direction: column; /* Stack list and chart vertically by default */
+    gap: 25px; /* Increased gap */
+    margin-top: 10px;
+}
+
+@media (min-width: 992px) { /* Side-by-side on larger screens for this component's internal layout */
+  .cost-display-layout {
+    flex-direction: row;
+  }
+}
+
+.cost-list-area {
+    flex: 2; /* Adjust flex basis if needed, e.g., flex: 2; */
+    min-width: 280px;
+}
+
+.cost-chart-area {
+    flex: 1; /* Adjust flex basis if needed, e.g., flex: 1; */
+    min-width: 280px;
+    max-width: 450px; /* Max width for doughnut chart to not be too large */
+    height: 320px; /* Fixed height for the chart container */
+    margin: 0 auto 0 0; /* Center chart area if it's not taking full flex width */
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff; /* White background for the chart area */
+}
+
+
+.resource-group-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    overflow: hidden; /* For rounded corners on list items */
+}
+
+.resource-group-summary li {
+    padding: 0.6rem 0.85rem; /* Adjusted padding */
+    border-bottom: 1px solid #dee2e6;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+    font-size: 0.95em;
+    background-color: #fff;
+}
+
+.resource-group-summary li:hover {
+    background-color: #e9f5ff; /* Light blue hover */
+}
+
+.resource-group-summary li:active {
+    background-color: #cfe2ff;
+    font-weight: 500;
+}
+
+.resource-group-summary li:last-child {
+    border-bottom: none;
+}
+
+.detailed-costs table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-size: 0.9em; /* Smaller font for dense tables */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.detailed-costs th,
+.detailed-costs td {
+    border: 1px solid #e9ecef; /* Lighter borders */
+    padding: 0.5rem 0.7rem; /* Adjusted padding */
+    text-align: left;
+    vertical-align: top;
+}
+
+.detailed-costs th {
+    background-color: #f8f9fa; /* Very light grey for headers */
+    font-weight: 500;
+    color: #495057;
+}

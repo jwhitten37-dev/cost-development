@@ -1,0 +1,99 @@
+/* src/pages/SubscriptionComparisonPage.css */
+.comparison-page-container {
+    padding: 24px;
+    background-color: #f4f6f8;
+    min-height: 100%;
+}
+
+.comparison-controls {
+    margin-bottom: 24px;
+    padding: 8px;
+}
+
+.comparison-area {
+    display: flex;
+    gap: 16px; /* Space between columns and separators */
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.comparison-column {
+    flex: 1;
+    max-width: 400px;
+    min-width: 320px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.comparison-column:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.comparison-separator {
+    flex-shrink: 0;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 160px; /* Align with the start of comparable metrics */
+    gap: 48px; /* Increased gap for better visual separation */
+}
+
+.difference-block {
+    text-align: center;
+}
+
+.difference-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.difference-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.difference-value.increase {
+    color: #d32f2f; /* Material UI Error Red */
+}
+
+.difference-value.decrease {
+    color: #2e7d32; /* Material UI Success Green */
+}
+
+.metric-card {
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1565c0; /* A primary blue color */
+    line-height: 1.2;
+}
+
+.sub-header {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+}
